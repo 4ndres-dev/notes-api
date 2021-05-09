@@ -23,11 +23,6 @@ let notes = [
 	}
 ];
 
-// const app = http.createServer((request, response) => {
-//     response.writeHead(200, { 'Content-Type': 'application/json' });
-//     response.end(JSON.stringify(notes));
-// })
-
 app.get('/', (request, response) => {
 	response.send('<h1>App Note</h1>');
 });
@@ -71,6 +66,7 @@ app.post('/api/notes', (request, response) => {
 
 	response.status(201).json(newNote);
 });
+console.log("Database_URL", process.env.DATABASE_URL);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
